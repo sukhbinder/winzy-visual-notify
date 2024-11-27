@@ -17,7 +17,22 @@ winzy install winzy-visual-notify
 ```
 ## Usage
 
-Usage instructions go here.
+```bash
+
+usage: winzy tell [-h] [-t [TEXT ...]] [-c {dog,watermellon,bee,ghost,random}]
+
+Notify using visual artefacts like clippy and other things.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -t [TEXT ...], --text [TEXT ...]
+                        Text to display
+  -c {dog,watermellon,bee,ghost,random}, --character {dog,watermellon,bee,ghost,random}
+                        Name of Character to display
+
+
+```
+
 
 ## Development
 
