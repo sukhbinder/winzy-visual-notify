@@ -1,6 +1,6 @@
 [project]
 name = "winzy-visual-notify"
-version = "0.0.1"
+version = "0.0.2"
 description = "Notify using visual artefacts like clippy and other things."
 readme = "README.md"
 authors = [{name = "Sukhbinder Singh"}]
