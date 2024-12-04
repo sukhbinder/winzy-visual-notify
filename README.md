@@ -33,6 +33,8 @@ optional arguments:
 
 ```
 
+## demo
+![winzy tell ](https://raw.githubusercontent.com/sukhbinder/winzy-visual-notify/refs/heads/main/winzy-visual-notify-demo.gif)
 
 ## Development
 
