@@ -9,7 +9,13 @@ Notify using visual artefacts like clippy and other things.
 
 ## Installation
 
-First configure your Winzy project [to use Winzy](https://github.com/sukhbinder/winzy).
+First configure to install Winzy [to use Winzy](https://github.com/sukhbinder/winzy).
+
+which means.
+
+```bash
+pip install winzy
+```
 
 Then install this plugin in the same environment as your Winzy application.
 ```bash
