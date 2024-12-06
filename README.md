@@ -7,6 +7,8 @@
 
 Notify using visual artefacts like clippy and other things.
 
+For a background on this project see [Look who is talking. a new winzy plugin](https://sukhbinder.wordpress.com/2024/12/05/look-who-is-talking-a-new-winzy-plugin/)
+
 ## Installation
 
 First configure to install Winzy [to use Winzy](https://github.com/sukhbinder/winzy).
