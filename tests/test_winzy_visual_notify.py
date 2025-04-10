@@ -4,15 +4,17 @@ from winzy_visual_notify.pyside6_speech_bubble import get_character_choices
 
 from argparse import ArgumentParser
 
+
 def test_create_parser():
     subparser = ArgumentParser().add_subparsers()
     parser = w.create_parser(subparser)
 
     assert parser is not None
 
-    result = parser.parse_args(['--text', 'hello'])
+    result = parser.parse_args(["--text", "hello"])
     assert result.text == ["hello"]
     assert result.character == "random"
+    assert result.duration == 90
 
 
 def test_plugin(capsys):

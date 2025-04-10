@@ -1,4 +1,3 @@
-
 from PySide6.QtWidgets import QApplication, QWidget, QLabel
 import sys
 import time
@@ -10,27 +9,36 @@ from typing import Generator
 from typing import Union
 import functools
 
+
 def get_assets(name):
     asset_path = os.path.join(os.path.dirname(__file__), "assets")
     return os.path.join(asset_path, name)
 
+
 def get_character_choices():
     asset_path = os.path.join(os.path.dirname(__file__), "assets")
-    choices = [f.lower().replace(".png", "") for f in os.listdir(asset_path) if f.lower().endswith(".png")]
+    choices = [
+        f.lower().replace(".png", "")
+        for f in os.listdir(asset_path)
+        if f.lower().endswith(".png")
+    ]
     return choices
+
 
 def close(app):
     app.close()
     if os.name == "posix":
         sys.exit()
 
+
 def mainrun(text, character_name, duration=90):
     app = QApplication(sys.argv)
     window = SpeechBubbleWidget(character_name)
     window.show()
     window.reset(text)
-    QTimer.singleShot(duration*1000, functools.partial(close, app=window))
+    QTimer.singleShot(duration * 1000, functools.partial(close, app=window))
     sys.exit(app.exec())
+
 
 class SpeechBubbleWidget(QWidget):
     def __init__(self, character_name):
@@ -41,7 +49,6 @@ class SpeechBubbleWidget(QWidget):
         )
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
         self.character_name = character_name
-
 
         image_path = get_assets(f"{character_name}.png")
 
@@ -56,8 +63,8 @@ class SpeechBubbleWidget(QWidget):
         self.img_height = int(self.pixmap.height() * scale_factor)
         self.img_width = int(self.pixmap.width() * scale_factor)
 
-    def reset(self, text:Union[str, Generator]):
-        self.full_text:Union[str,Generator] = text
+    def reset(self, text: Union[str, Generator]):
+        self.full_text: Union[str, Generator] = text
         self.sudo_full_text = self.full_text if isinstance(self.full_text, str) else ""
         self.displayed_text = ""
         self.char_index = 0
@@ -140,7 +147,7 @@ class SpeechBubbleWidget(QWidget):
         if isinstance(self.full_text, str):
             _, max_req = self.compute_height(self.full_text, metrics, max_width)
         else:
-            max_req = max(line_req,900)
+            max_req = max(line_req, 900)
         diff = max_req - line_req
 
         total_height = max_req + 60 + self.img_height
