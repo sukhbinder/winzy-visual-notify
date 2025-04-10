@@ -8,7 +8,7 @@ from PySide6.QtGui import QPainter, QColor, QFont, QFontMetrics, QPainterPath, Q
 from functools import lru_cache
 from typing import Generator
 from typing import Union
-
+import functools
 
 def get_assets(name):
     asset_path = os.path.join(os.path.dirname(__file__), "assets")
@@ -19,11 +19,17 @@ def get_character_choices():
     choices = [f.lower().replace(".png", "") for f in os.listdir(asset_path) if f.lower().endswith(".png")]
     return choices
 
-def mainrun(text, character_name):
+def close(app):
+    app.close()
+    if os.name == "posix":
+        sys.exit()
+
+def mainrun(text, character_name, duration=90):
     app = QApplication(sys.argv)
     window = SpeechBubbleWidget(character_name)
     window.show()
     window.reset(text)
+    QTimer.singleShot(duration*1000, functools.partial(close, app=window))
     sys.exit(app.exec())
 
 class SpeechBubbleWidget(QWidget):

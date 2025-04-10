@@ -5,11 +5,12 @@ from random import choice
 
 
 def create_parser(subparser):
-    parser = subparser.add_parser("tell", description="Notify using visual artefacts like clippy and other things. ")
+    parser = subparser.add_parser("tell", description="Notify using visual artefacts like clippy and other things")
     # Add subprser arguments here.
     parser.add_argument("-t", "--text", type=str, nargs="*", help="Text to display")
     parser.add_argument("-c", "--character", choices = get_character_choices()+["random"], default="random",
                          help="Name of Character to display")
+    parser.add_argument("-d", "--duration", type=int, default=90, help="Duration is seconds after which the notification is closed")
     return parser
 
 
@@ -25,6 +26,7 @@ class WinzyPlugin:
     def main(self, args):
         text= args.text
         character_name = args.character.lower()
+        duration = args.duration
         if "-" in text:
             text = sys.stdin.read()
         else:
@@ -34,7 +36,7 @@ class WinzyPlugin:
         if character_name == "random":
             character_name = choice(get_character_choices())
 
-        iret = mainrun(text, character_name)
+        iret = mainrun(text, character_name, duration)
 
     def hello(self, args):
         # this routine will be called when "winzy tell" is called.
