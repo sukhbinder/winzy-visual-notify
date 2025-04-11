@@ -36,7 +36,8 @@ def mainrun(text, character_name, duration=90):
     window = SpeechBubbleWidget(character_name)
     window.show()
     window.reset(text)
-    QTimer.singleShot(duration * 1000, functools.partial(close, app=window))
+    if duration > 0:
+        QTimer.singleShot(duration * 1000, functools.partial(close, app=window))
     sys.exit(app.exec())
 
 

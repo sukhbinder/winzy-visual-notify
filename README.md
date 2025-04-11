@@ -29,8 +29,9 @@ winzy install winzy-visual-notify
 
 usage: winzy tell [-h] [-t [TEXT ...]]
                   [-c {dog,dog2,watermellon,bee,ghost,hen,man,pear,purple,random}]
+                  [-d DURATION]
 
-Notify using visual artefacts like clippy and other things.
+Notify using visual artefacts like clippy and other things
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -38,6 +39,10 @@ optional arguments:
                         Text to display
   -c {dog,dog2,watermellon,bee,ghost,hen,man,pear,purple,random}, --character {dog,dog2,watermellon,bee,ghost,hen,man,pear,purple,random}
                         Name of Character to display
+  -d DURATION, --duration DURATION
+                        Duration is seconds after which the notification is
+                        closed. Default 5 mins. use -1 to not close
+
 
 ```
 

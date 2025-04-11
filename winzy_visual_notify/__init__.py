@@ -21,8 +21,8 @@ def create_parser(subparser):
         "-d",
         "--duration",
         type=int,
-        default=90,
-        help="Duration is seconds after which the notification is closed",
+        default=300,
+        help="Duration is seconds after which the notification is closed. Default 5 mins. use -1 to not close",
     )
     return parser
 

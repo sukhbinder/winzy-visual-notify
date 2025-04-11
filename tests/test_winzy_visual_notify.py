@@ -14,7 +14,7 @@ def test_create_parser():
     result = parser.parse_args(["--text", "hello"])
     assert result.text == ["hello"]
     assert result.character == "random"
-    assert result.duration == 90
+    assert result.duration == 300
 
 
 def test_plugin(capsys):
